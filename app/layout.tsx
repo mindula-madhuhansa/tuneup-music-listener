@@ -3,12 +3,14 @@ import { Figtree } from "next/font/google";
 import "./globals.css";
 
 import Sidebar from "@/components/Sidebar";
+import SupabaseProvider from "@/providers/SupabaseProvider";
+import UserProvider from "@/providers/UserProvider";
 
 const figtree = Figtree({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TuneUp | Music Listener",
-  description: "Your Music Listening App",
+  description: "Listen to your Favorite Music!",
 };
 
 export default function RootLayout({
@@ -19,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={figtree.className}>
-        <Sidebar>{children}</Sidebar>
+        <SupabaseProvider>
+          <UserProvider>
+            <Sidebar>{children}</Sidebar>
+          </UserProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );

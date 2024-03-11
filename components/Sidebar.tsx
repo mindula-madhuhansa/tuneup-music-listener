@@ -8,9 +8,9 @@ import Box from "./Box";
 import SidebarItem from "./SidebarItem";
 import Library from "./Library";
 
-type SidebarProps = {
+interface SidebarProps {
   children: React.ReactNode;
-};
+}
 
 const Sidebar = ({ children }: SidebarProps) => {
   const pathname = usePathname();

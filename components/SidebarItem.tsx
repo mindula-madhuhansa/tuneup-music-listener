@@ -2,12 +2,12 @@ import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 
-type SidebarItemProps = {
+interface SidebarItemProps {
   icon: LucideIcon;
   label: string;
   active?: boolean;
   href: string;
-};
+}
 
 const SidebarItem = ({ icon: Icon, label, href, active }: SidebarItemProps) => {
   return (

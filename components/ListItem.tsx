@@ -4,11 +4,11 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-type ListItemProps = {
+interface ListItemProps {
   image: string;
   name: string;
   href: string;
-};
+}
 
 const ListItem = ({ image, name, href }: ListItemProps) => {
   const router = useRouter();
