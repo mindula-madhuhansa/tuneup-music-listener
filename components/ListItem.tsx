@@ -28,7 +28,7 @@ const ListItem = ({ image, name, href }: ListItemProps) => {
       </div>
       <p className="font-medium truncate py-5">{name}</p>
       <div className="absolute transition opacity-0 rounded-full flex items-center justify-center bg-indigo-500 p-4 drop-shadow-md right-5 group-hover:opacity-100 hover:scale-105">
-        <Play className="text-black" />
+        <Play className="text-black" fill="currentColor" />
       </div>
     </button>
   );
