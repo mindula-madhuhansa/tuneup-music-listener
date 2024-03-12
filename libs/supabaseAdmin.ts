@@ -82,7 +82,6 @@ const copyBillingDetailsToCustomer = async (
   uuid: string,
   payment_method: Stripe.PaymentMethod
 ) => {
-  //Todo: check this assertion
   const customer = payment_method.customer as string;
   const { name, phone, address } = payment_method.billing_details;
   if (!name || !phone || !address) return;
@@ -125,7 +124,6 @@ const manageSubscriptionStatusChange = async (
       // @ts-ignore
       status: subscription.status,
       price_id: subscription.items.data[0].price.id,
-      //TODO check quantity on subscription
       // @ts-ignore
       quantity: subscription.quantity,
       cancel_at_period_end: subscription.cancel_at_period_end,
@@ -161,10 +159,7 @@ const manageSubscriptionStatusChange = async (
     `Inserted/updated subscription [${subscription.id}] for user [${uuid}]`
   );
 
-  // For a new subscription copy the billing details to the customer object.
-  // NOTE: This is a costly operation and should happen at the very end.
   if (createAction && subscription.default_payment_method && uuid)
-    //@ts-ignore
     await copyBillingDetailsToCustomer(
       uuid,
       subscription.default_payment_method as Stripe.PaymentMethod
