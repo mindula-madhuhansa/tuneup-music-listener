@@ -1,8 +1,8 @@
 "use client";
 
 import {
-  ChevronLeft,
-  ChevronRight,
+  ArrowLeft,
+  ArrowRight,
   HomeIcon,
   SearchIcon,
   User,
@@ -40,26 +40,31 @@ const Header = ({ children, className }: HeaderProps) => {
     }
   };
   return (
-    <div className={twMerge("h-fit bg-gradient-to-b from-pink-800 p-6")}>
+    <div
+      className={twMerge(
+        "h-fit bg-gradient-to-b from-indigo-800 p-6",
+        className
+      )}
+    >
       <div className="w-full mb-4 flex items-center justify-between">
         <div className="hidden md:flex gap-x-2 items-center">
           <button
             onClick={() => router.back()}
-            className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition"
+            className="rounded-full p-1 bg-black flex items-center justify-center hover:opacity-75 transition"
           >
-            <ChevronLeft className="text-white" size={35} />
+            <ArrowLeft className="text-white" size={26} />
           </button>
           <button
             onClick={() => router.forward()}
-            className="rounded-full bg-black flex items-center justify-center hover:opacity-75 transition"
+            className="rounded-full p-1 bg-black flex items-center justify-center hover:opacity-75 transition"
           >
-            <ChevronRight className="text-white" size={35} />
+            <ArrowRight className="text-white" size={26} />
           </button>
         </div>
 
         <div className="flex md:hidden gap-x-2 items-center">
           <button className="rounded-full p-3 bg-white flex items-center justify-center hover:opacity-75 transition">
-            <HomeIcon className="text-black" fill="currentColor" size={20} />
+            <HomeIcon className="text-black" size={20} />
           </button>
           <button className="rounded-full p-3 bg-white flex items-center justify-center hover:opacity-75 transition">
             <SearchIcon className="text-black" size={20} />
@@ -76,7 +81,7 @@ const Header = ({ children, className }: HeaderProps) => {
                 onClick={() => router.push("/account")}
                 className="bg-white"
               >
-                <User fill="black" />
+                <User />
               </Button>
             </div>
           ) : (
